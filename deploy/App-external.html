@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mydemoapp</title>
+
+    <script type="text/javascript" src="https://rally1.rallydev.com/apps/2.1/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function () {
+                Ext.define("Rally.ui.cardboard.row.RowFix",{override:"Rally.ui.cardboard.row.Row",isMatchingRecord:function(record){return this.callParent(arguments)||this.getValue().Name===record.get("Release").Name}}),Ext.define("mycardcolumnheader",{extend:"Rally.ui.cardboard.ColumnHeader",alias:"widget.mycardcolumnheader"}),Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){var dTab=Ext.create("Ext.Container",{items:[{xtype:"rallycardboard",types:["HierarchicalRequirement"],attribute:"Feature",rowConfig:{field:"Release",sortDirection:"ASC"},enableDragAndDrop:!0}]});this.add(dTab)}});
+
+            Rally.launchApp('CustomApp', {
+                name:"mydemoapp",
+	            parentRepos:""
+            });
+
+        });
+    </script>
+
+
+    <style type="text/css">
+        
+    </style>
+</head>
+<body>
+</body>
+</html>
